@@ -110,60 +110,49 @@ text-align:center;
     }
 
 
-  /*media queries*/
-
-  @media (max-width: 599px) {
-    .grid-container {
-      grid-template-columns: 1fr; /* Change to a single column layout for mobile */
-    }
-
-    .grid-item {
-      width: 100%; /* Ensure grid items take full width on mobile */
-    }
-
-    header {
-      font-size: 1.5em; /* Adjust header font size for better readability on mobile */
-    }
-
-    footer {
-      font-size: 0.8em; /* Adjust footer font size for better readability on mobile */
-    }
-
-    .modal-content {
-      width: 90%; /* Adjust modal width for better display on mobile */
-    }
-
-    /* Additional mobile styles can be added here as needed */
-  }
-  </style>
-<style>
-  /* Your existing CSS styles */
-
-  @media (max-width: 700px) {
-    .grid-container {
-      grid-template-columns: 1fr; /* Change to a single column layout for mobile */
-    }
-
-    .grid-item {
-      width: 100%; /* Ensure grid items take full width on mobile */
-    }
-
-    header {
-      font-size: 1.5em; /* Adjust header font size for better readability on mobile */
-    }
-
-    footer {
-      font-size: 0.8em; /* Adjust footer font size for better readability on mobile */
-    }
-
-    .modal-content {
-      width: 90%; /* Adjust modal width for better display on mobile */
-    }
-
-    /* Additional mobile styles can be added here as needed */
-  }
+  
 </style>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  height: fit-content;
+}
+
+.grid-item h2 {
+  margin-top: 0;
+}
+
+@media (min-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  .grid-item {
+    margin-bottom: 20px;
+  }
+}
+</style>
 </head>
 <body>
   <header>
