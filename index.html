@@ -11,7 +11,7 @@
     }
     .grid-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: 1fr;
       gap: 20px;
       padding: 20px;
     }
@@ -38,7 +38,7 @@
     /* Toast styles */
     .toast {
       visibility: hidden;
-      max-width: 50%;
+      max-width: 80%;
       margin: auto;
       background-color: #333;
       color: white;
@@ -73,10 +73,11 @@
     }
     .modal-content {
       background-color: #fefefe;
-      margin: 15% auto;
+      margin: 20% auto;
       padding: 20px;
       border: 1px solid #888;
-      width: 80%;
+      width: 90%;
+      max-width: 500px;
       border-radius: 10px;
     }
     @keyframes ripple {
@@ -87,6 +88,11 @@
       100% {
         transform: scale(1);
         opacity: 1;
+      }
+    }
+    @media (min-width: 600px) {
+      .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       }
     }
   </style>
@@ -167,6 +173,65 @@
       <p>Understanding these projections and forecasts can help investors make informed decisions. It is important to consider both the opportunities and challenges that NVIDIA may face in the future market landscape.</p>
     </div>
     <div class="grid-item">
+      <h2>Overview</h2>
+      <p>NVIDIA Corporation, a leader in accelerated computing, has significantly advanced its technologies and market reach in 2024. The company focuses on sustainable computing, generative AI, and full-stack computing systems that span from chip architecture to AI factories.</p>
+    </div>
+    <div class="grid-item">
+      <h2>Financial Performance</h2>
+      <ul>
+        <li><strong>Revenue:</strong> $60.9 billion, up 126% year-over-year.</li>
+        <li><strong>Gross Margin:</strong> 72.7%.</li>
+        <li><strong>Operating Income:</strong> $33.0 billion, up 681% year-over-year.</li>
+        <li><strong>Earnings Per Share (EPS):</strong> $11.93, up 586% year-over-year.</li>
+      </ul>
+    </div>
+    <div class="grid-item">
+      <h2>Key Market Segments</h2>
+      <ul>
+        <li><strong>Compute & Networking:</strong> $47.4 billion revenue, up 215% year-over-year.</li>
+        <li><strong>Graphics:</strong> $13.5 billion revenue, up 14% year-over-year.</li>
+        <li><strong>Data Center:</strong> $47.5 billion revenue, up 217% year-over-year.</li>
+        <li><strong>Gaming:</strong> $10.4 billion revenue, up 15% year-over-year.</li>
+        <li><strong>Professional Visualization:</strong> $1.6 billion revenue, up 1% year-over-year.</li>
+        <li><strong>Automotive:</strong> $1.1 billion revenue, up 21% year-over-year.</li>
+      </ul>
+    </div>
+    <div class="grid-item">
+      <h2>Technological Innovations</h2>
+      <ul>
+        <li><strong>Blackwell GPU Architecture:</strong> Powers AI at trillion-parameter scale.</li>
+        <li><strong>Grace CPU:</strong> First Arm-based data center CPU.</li>
+        <li><strong>NVIDIA Spectrum-X:</strong> Accelerated networking platform for AI clouds.</li>
+        <li><strong>NVIDIA Inference Microservices (NIM):</strong> Cloud-native services for AI deployment.</li>
+        <li><strong>GeForce RTX 40 SUPER Series:</strong> Advanced gaming GPUs.</li>
+      </ul>
+    </div>
+    <div class="grid-item">
+      <h2>Strategic Initiatives</h2>
+      <p>AI and Healthcare: Partnerships with companies like Genentech and Amgen for drug discovery using NVIDIA Clara and BioNeMo platforms.</p>
+      <p>Automotive: NVIDIA DRIVE platforms are integrated into new electric and autonomous vehicles from leading manufacturers.</p>
+      <p>Digital Twins and Industrial Applications: Omniverse platform for virtual world simulations and digital twins, with partnerships across industries.</p>
+    </div>
+    <div class="grid-item">
+      <h2>Corporate Governance and Sustainability</h2>
+      <ul>
+        <li><strong>Board Composition:</strong> Diverse and inclusive, with four women and three ethnically/racially diverse directors.</li>
+        <li><strong>Sustainability:</strong> Focus on sustainable computing, reducing energy consumption, and achieving net-zero emissions through accelerated computing.</li>
+      </ul>
+    </div>
+    <div class="grid-item">
+      <h2>Strategic Vision</h2>
+      <p>NVIDIA is at the forefront of two major transitions—accelerated computing and generative AI. The company envisions AI transforming every industry, with NVIDIA’s technologies playing a central role in this new industrial revolution.</p>
+    </div>
+    <div class="grid-item">
+      <h2>Risks and Challenges</h2>
+      <p>Potential risks include global economic conditions, competition, technological development, regulatory changes, and changes in consumer preferences. NVIDIA aims to address these challenges through continuous innovation and strategic partnerships.</p>
+    </div>
+    <div class="grid-item">
+      <h2>Shareholder Returns</h2>
+      <p>NVIDIA emphasizes returning capital to shareholders through stock appreciation and dividends. The company’s strategic initiatives and financial performance aim to maximize shareholder value.</p>
+    </div>
+    <div class="grid-item">
       <h2>Conclusion</h2>
       <p>NVIDIA's current market position and strategic initiatives suggest a promising future, but investors should remain vigilant about <a href="#" id="externalFactorsLink">external factors</a> that could affect the company's performance. Continuous monitoring of market trends and NVIDIA's strategic responses will be crucial for making sound investment decisions.</p>
     </div>
@@ -187,13 +252,22 @@
   </footer>
   
   <!-- Toast Notification -->
-  <div id="toast" class="toast">External factors can significantly impact NVIDIA's performance. Please be cautious!</div>
+  <div id="toast" class="toast">Homework given by Ahmed on NVIDIA Stocks Market Research Report - 2024-05-15</div>
   
   <!-- Modal -->
   <div id="myModal" class="modal">
     <div class="modal-content">
       <h2>External Factors</h2>
-      <p>External factors such as changes in regulatory policies, economic conditions, and competitive landscape can significantly impact NVIDIA's performance. Investors should stay informed and monitor these factors closely to make well-informed investment decisions.</p>
+      <ul>
+        <li>Global economic conditions</li>
+        <li>Technological development and competition</li>
+        <li>Regulatory changes</li>
+        <li>Market acceptance of products</li>
+        <li>Design, manufacturing, or software defects</li>
+        <li>Changes in consumer preferences or demands</li>
+        <li>Changes in industry standards and interfaces</li>
+        <li>Unexpected loss of performance of products or technologies</li>
+      </ul>
       <button id="closeModal">Close</button>
     </div>
   </div>
@@ -245,12 +319,10 @@
 
       // Toast functionality
       var toast = document.getElementById("toast");
+      toast.classList.add("show");
       setTimeout(function() {
-        toast.classList.add("show");
-        setTimeout(function() {
-          toast.classList.remove("show");
-        }, 5000); // Duration the toast is shown
-      }, 1000); // Delay before the toast is shown
+        toast.classList.remove("show");
+      }, 3000);
 
       // Modal functionality
       var modal = document.getElementById("myModal");
