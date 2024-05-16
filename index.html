@@ -1,298 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homework on NVIDIA Stocks Market Research Report - 2024-05-16</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        header, footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #fff;
-            color: #333;
-        }
-
-        h1, h2 {
-            color: #333;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .table {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .table-row {
-            display: contents;
-        }
-
-        .table-cell {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-            border-right: 1px solid #ccc;
-        }
-
-        .table-cell:last-child {
-            border-right: none;
-        }
-
-        .header .table-cell {
-            background-color: #f0f0f0;
-            font-weight: bold;
-        }
-
-        .table-row:last-child .table-cell {
-            border-bottom: none;
-        }
-    </style>
+  <title>NVIDIA Stock Market Research Report - 2024-05-15</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .grid-item {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      height: fit-content;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #f1f1f1;
+      border-top: 1px solid #ccc;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      opacity: 0.5;
+    }
+    /* Toast styles */
+    .toast {
+      visibility: hidden;
+      max-width: 50%;
+      margin: auto;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      border-radius: 4px;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      bottom: 50px;
+      font-size: 17px;
+      padding: 16px;
+      transition: visibility 0.5s, opacity 0.5s;
+      opacity: 0;
+    }
+    .toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      animation: ripple 0.5s;
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      border-radius: 10px;
+    }
+    @keyframes ripple {
+      0% {
+        transform: scale(0);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Homework given by Ahmed on NVIDIA Stocks Market Research Report - 2024-05-15</h1>
-    </header>
-
-    <div class="container">
-        <h1>Comprehensive Report on NVIDIA Stock Prices</h1>
-        
-        <div class="section">
-            <h2>Introduction</h2>
-            <p>NVIDIA Corporation, a leader in GPUs and AI technology, has experienced significant growth in its stock prices. This report analyzes the reasons behind the rise, current trends, and future prospects of NVIDIA shares.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Historical Stock Performance</h2>
-            <div class="table">
-                <div class="table-row header">
-                    <div class="table-cell">Year</div>
-                    <div class="table-cell">Key Event/Milestone</div>
-                    <div class="table-cell">Impact on Stock</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">2016</div>
-                    <div class="table-cell">Launch of Pascal architecture GPUs</div>
-                    <div class="table-cell">Significant stock price increase due to high demand and performance improvement.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">2018</div>
-                    <div class="table-cell">Introduction of Volta architecture and AI advancements</div>
-                    <div class="table-cell">Boost in stock price as NVIDIA's technology became essential for AI research and applications.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">2020</div>
-                    <div class="table-cell">Surge in revenue during COVID-19 pandemic</div>
-                    <div class="table-cell">Stock prices soared due to increased demand for gaming GPUs and data center products.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">2021-2023</div>
-                    <div class="table-cell">Expansion into AI, data centers, and gaming</div>
-                    <div class="table-cell">Continued stock price growth as NVIDIA solidified its market leadership.</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Key Drivers of Stock Price Increase</h2>
-            <div class="table">
-                <div class="table-row header">
-                    <div class="table-cell">Driver</div>
-                    <div class="table-cell">Details</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Technological Advancements</div>
-                    <div class="table-cell">NVIDIA's pioneering work in GPUs, AI, and machine learning has positioned it as a key player in tech innovation.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Market Demand</div>
-                    <div class="table-cell">High demand for GPUs in gaming, cryptocurrency mining, data centers, and AI applications.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Financial Performance</div>
-                    <div class="table-cell">Strong revenue growth, profit margins, and positive earnings reports have bolstered investor confidence.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Strategic Partnerships and Acquisitions</div>
-                    <div class="table-cell">Key acquisitions like Mellanox and strategic partnerships in AI and autonomous driving have expanded NVIDIA's market reach.</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Recent Developments</h2>
-            <div class="table">
-                <div class="table-row header">
-                    <div class="table-cell">Aspect</div>
-                    <div class="table-cell">Details</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Product Launches</div>
-                    <div class="table-cell">Recent releases include the RTX 30 series GPUs, which have been well-received in the market.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Partnerships and Collaborations</div>
-                    <div class="table-cell">New partnerships with major tech companies and AI research initiatives strengthen NVIDIA's market position.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Regulatory and Market Trends</div>
-                    <div class="table-cell">Regulatory changes and market dynamics in the semiconductor industry could impact NVIDIA's future growth.</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Expert Analyses and Future Prospects</h2>
-            <div class="table">
-                <div class="table-row header">
-                    <div class="table-cell">Aspect</div>
-                    <div class="table-cell">Details</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Analyst Opinions</div>
-                    <div class="table-cell">Analysts have a positive outlook on NVIDIA, citing its leadership in AI and data centers as key growth drivers.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Market Predictions</div>
-                    <div class="table-cell">Strong forecasts for NVIDIA's future market performance, driven by continued innovation and market expansion.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Risks and Challenges</div>
-                    <div class="table-cell">Potential risks include regulatory scrutiny, supply chain issues, and competition from other tech giants. Investors should monitor these factors closely.</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Conclusion and Investment Recommendations</h2>
-            <p>Summary of Findings: NVIDIA's growth is driven by its technological innovations, market demand, strong financial performance, and strategic partnerships.</p>
-            <p>Investment Recommendations: Consider long-term investment in NVIDIA shares, focusing on the company's strengths in AI, data centers, and gaming markets. Stay informed about potential risks and market changes to make well-informed investment decisions.</p>
-        </div>
-
-        <div class="section">
-            <h2>Competition to Lookout for</h2>
-            <div class="table">
-                <div class="table-row header">
-                    <div class="table-cell">Competitor</div>
-                    <div class="table-cell">Details</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Advanced Micro Devices (AMD)</div>
-                    <div class="table-cell">
-                        <strong>Market Position:</strong> AMD is a significant competitor in the GPU market with its Radeon series, and it also competes in the CPU market with its Ryzen and EPYC processors.<br>
-                        <strong>Key Products:</strong> Radeon GPUs, Ryzen CPUs, EPYC server processors.<br>
-                        <strong>Strengths:</strong> Strong performance in both gaming and professional graphics markets, competitive pricing, and innovation in CPU technology.
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Intel Corporation</div>
-                    <div class="table-cell">
-                        <strong>Market Position:</strong> Intel is a dominant player in the CPU market and is making aggressive moves to enter the discrete GPU market with its Intel Arc series.<br>
-                        <strong>Key Products:</strong> Core and Xeon CPUs, Intel Arc GPUs.<br>
-                        <strong>Strengths:</strong> Established market presence, extensive R&D resources, and strong brand recognition.
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Qualcomm</div>
-                    <div class="table-cell">
-                        <strong>Market Position:</strong> Qualcomm is a leader in mobile processors and AI solutions for mobile and edge devices.<br>
-                        <strong>Key Products:</strong> Snapdragon processors, AI chips for mobile and automotive applications.<br>
-                        <strong>Strengths:</strong> Leadership in mobile chipsets, expanding presence in AI and automotive markets.
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Apple</div>
-                    <div class="table-cell">
-                        <strong>Market Position:</strong> Apple designs its own custom silicon, including the M1 and M2 chips, which offer integrated graphics and AI capabilities.<br>
-                        <strong>Key Products:</strong> M1, M2, and future Apple Silicon chips.<br>
-                        <strong>Strengths:</strong> Vertical integration, strong performance and power efficiency, robust ecosystem.
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Arm Holdings (and its licensees)</div>
-                    <div class="table-cell">
-                        <strong>Market Position:</strong> Arm designs the architecture used by many companies for CPUs and GPUs, particularly in mobile and IoT devices.<br>
-                        <strong>Key Products:</strong> Arm-based CPUs and GPUs, used by companies like Apple, Qualcomm, and Samsung.<br>
-                        <strong>Strengths:</strong> Widely adopted architecture, innovation in low-power and high-efficiency designs.
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Microsoft</div>
-                    <div class="table-cell">
-                        <strong>Market Position:</strong> Microsoft is expanding its presence in AI and cloud computing with custom AI chips.<br>
-                        <strong>Key Products:</strong> Azure AI, custom AI accelerators.<br>
-                        <strong>Strengths:</strong> Strong position in cloud computing, extensive AI research and development.
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Google</div>
-                    <div class="table-cell">
-                        <strong>Market Position:</strong> Google develops custom AI hardware, such as the Tensor Processing Units (TPUs), for its data centers and AI services.<br>
-                        <strong>Key Products:</strong> Tensor Processing Units (TPUs).<br>
-                        <strong>Strengths:</strong> Leadership in AI research, integration with Google Cloud services, large-scale deployment.
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Samsung</div>
-                    <div class="table-cell">
-                        <strong>Market Position:</strong> Samsung is a major player in the semiconductor industry, producing a wide range of chips, including GPUs for mobile devices.<br>
-                        <strong>Key Products:</strong> Exynos processors, mobile GPUs.<br>
-                        <strong>Strengths:</strong> Large-scale manufacturing capabilities, innovation in mobile technology.
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Huawei</div>
-                    <div class="table-cell">
-                        <strong>Market Position:</strong> Huawei designs its own AI and GPU solutions for mobile devices and data centers through its HiSilicon subsidiary.<br>
-                        <strong>Key Products:</strong> Kirin processors, AI chips.<br>
-                        <strong>Strengths:</strong> Strong presence in telecommunications and mobile markets, expanding AI capabilities.
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-cell">Tencent</div>
-                    <div class="table-cell">
-                        <strong>Market Position:</strong> Tencent is investing heavily in AI and cloud computing, developing its own AI chips.<br>
-                        <strong>Key Products:</strong> AI chips for cloud services.<br>
-                        <strong>Strengths:</strong> Dominant position in Chinese tech market, significant investments in AI research.
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>References</h2>
-            <ul>
-                <li><a href="https://www.nvidia.com/en-us/about-nvidia/investor-relations/financials/annual-reports/">NVIDIA Annual Reports</a></li>
-                <li><a href="https://www.cnbc.com/quotes/NVDA">CNBC NVIDIA Quote</a></li>
-                <li><a href="https://www.marketwatch.com/investing/stock/nvda">MarketWatch NVIDIA Stock</a></li>
-                <li><a href="https://www.forbes.com/companies/nvidia/">Forbes NVIDIA Profile</a></li>
-                <li><a href="https://www.bloomberg.com/quote/NVDA:US">Bloomberg NVIDIA Quote</a></li>
-                <li><a href="https://finance.yahoo.com/quote/NVDA/">Yahoo Finance NVIDIA</a></li>
-            </ul>
-        </div>
+  <h1>Homework given by Ahmed on NVIDIA Stocks Market Research Report - 2024-05-15</h1>
+  <div class="grid-container">
+    <div class="grid-item">
+      <h2>Key Metrics</h2>
+      <p><strong>Stock Price (May 15, 2024):</strong> $946.30</p>
+      <p><strong>All-Time High:</strong> $974.00 (March 8, 2024)</p>
+      <p><strong>Revenue (TTM):</strong> $60.922 billion</p>
+      <p><strong>Gross Margin (TTM):</strong> 72.72%</p>
+      <p><strong>Net Margin (TTM):</strong> 48.85%</p>
+      <p><strong>Earnings Per Share (TTM):</strong> $11.93</p>
+      <p><em>TTM: Trailing Twelve Months</em></p>
     </div>
+    <div class="grid-item">
+      <h2>Growth Drivers and Future Prospects</h2>
+      <ul>
+        <li><strong>Strong Financial Performance:</strong> NVIDIA's robust financials indicate stability and growth potential.</li>
+        <li><strong>Market Expansion:</strong> Diversification into new markets offers growth opportunities.</li>
+        <li><strong>Technological Advancements:</strong> Continued demand for Graphics Processing Units (GPUs) fuels growth.</li>
+        <li><strong>Positive Market Sentiment:</strong> Favorable industry outlook contributes to stock price surge.</li>
+      </ul>
+    </div>
+    <div class="grid-item">
+      <h2>Future Forecasts and Concerns</h2>
+      <ul>
+        <li><strong>Forecast:</strong> NVIDIA is poised to benefit from the increasing demand for Artificial Intelligence (AI) solutions.</li>
+        <li><strong>Growth Drivers:</strong> Expansion into emerging markets positions NVIDIA for future growth.</li>
+        <li><strong>Concerns:</strong> Competition, regulatory changes, and economic conditions could impact performance.</li>
+      </ul>
+    </div>
+    <div class="grid-item">
+      <h2>Forecasts and Projections for 2024-2025</h2>
+      <canvas id="myChart"></canvas>
+      <button id="chartTypeButton">Switch to Line Chart</button>
+      <p><em>EPS: Earnings Per Share</em></p>
+    </div>
+    <div class="grid-item">
+      <h2>Strategic Partnerships and Acquisitions</h2>
+      <p>NVIDIA has been making strategic partnerships and acquisitions to enhance its market position and offerings.</p>
+      <p><em>References:
+        <a href="https://finance.yahoo.com/quote/NVDA/">Yahoo Finance</a>,
+        <a href="https://www.barchart.com/story/news/23072443/what-will-2024-bring-for-nvidia-stock">Barchart.com</a>,
+        <a href="https://www.forbes.com/sites/petercohan/2024/04/11/why-nvidia-stock-could-top-1000-a-share-after-may-earnings-report/">Forbes</a>,
+        <a href="https://markets.businessinsider.com/news/stocks/nvidia-stock-price-prediction-artificial-intelligence-gpu-earnings-forecast-rally-2024-4">Business Insider</a>,
+        <a href="https://investor.nvidia.com/news/press-release-details/2024/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2024/">NVIDIA Investor Relations</a>
+      </em></p>
+    </div>
+    <div class="grid-item">
+      <h2>Expert Analyses and Future Prospects</h2>
+      <ul>
+        <li><strong>Analyst Opinions:</strong> Analysts have a positive outlook on NVIDIA, citing its leadership in AI and data centers as key growth drivers.</li>
+        <li><strong>Market Predictions:</strong> Strong forecasts for NVIDIA's future market performance, driven by continued innovation and market expansion.</li>
+        <li><strong>Risks and Challenges:</strong> Potential risks include regulatory scrutiny, supply chain issues, and competition from other tech giants. Investors should monitor these factors closely.</li>
+      </ul>
+    </div>
+    <div class="grid-item">
+      <h2>Competition to Lookout for</h2>
+      <ul>
+        <li><strong>Advanced Micro Devices (AMD):</strong> Significant competitor in the GPU market with its Radeon series, and also competes in the Central Processing Unit (CPU) market with its Ryzen and EPYC processors.</li>
+        <li><strong>Intel Corporation:</strong> Dominant player in the CPU market and making aggressive moves to enter the discrete GPU market with its Intel Arc series.</li>
+        <li><strong>Qualcomm:</strong> Leader in mobile processors and AI solutions for mobile and edge devices.</li>
+        <li><strong>Apple:</strong> Designs its own custom silicon, including the M1 and M2 chips, which offer integrated graphics and AI capabilities.</li>
+        <li><strong>Arm Holdings (and its licensees):</strong> Designs the architecture used by many companies for CPUs and GPUs, particularly in mobile and Internet of Things (IoT) devices.</li>
+        <li><strong>Microsoft:</strong> Expanding its presence in AI and cloud computing with custom AI chips.</li>
+        <li><strong>Google:</strong> Develops custom AI hardware, such as the Tensor Processing Units (TPUs), for its data centers and AI services.</li>
+        <li><strong>Samsung:</strong> Major player in the semiconductor industry, producing a wide range of chips, including GPUs for mobile devices.</li>
+        <li><strong>Huawei:</strong> Designs its own AI and GPU solutions for mobile devices and data centers through its HiSilicon subsidiary.</li>
+        <li><strong>Tencent:</strong> Investing heavily in AI and cloud computing, developing its own AI chips.</li>
+      </ul>
+    </div>
+    <div class="grid-item">
+      <h2>Summary and Analysis</h2>
+      <p>This report provides an analysis of NVIDIA's stock market performance, key metrics, growth drivers, and future forecasts. The data indicates strong financial health and potential for growth driven by market expansion and technological advancements. However, investors should be aware of potential risks such as increased competition and regulatory changes.</p>
+      <p>Understanding these projections and forecasts can help investors make informed decisions. It is important to consider both the opportunities and challenges that NVIDIA may face in the future market landscape.</p>
+    </div>
+    <div class="grid-item">
+      <h2>Conclusion</h2>
+      <p>NVIDIA's current market position and strategic initiatives suggest a promising future, but investors should remain vigilant about <a href="#" id="externalFactorsLink">external factors</a> that could affect the company's performance. Continuous monitoring of market trends and NVIDIA's strategic responses will be crucial for making sound investment decisions.</p>
+    </div>
+    <div class="grid-item">
+      <h2>References</h2>
+      <ul>
+        <li><a href="https://www.nvidia.com/en-us/about-nvidia/investor-relations/financials/annual-reports/">NVIDIA Annual Reports</a></li>
+        <li><a href="https://www.cnbc.com/quotes/NVDA">CNBC NVIDIA Quote</a></li>
+        <li><a href="https://www.marketwatch.com/investing/stock/nvda">MarketWatch NVIDIA Stock</a></li>
+        <li><a href="https://www.forbes.com/companies/nvidia/">Forbes NVIDIA Profile</a></li>
+        <li><a href="https://www.bloomberg.com/quote/NVDA:US">Bloomberg NVIDIA Quote</a></li>
+        <li><a href="https://finance.yahoo.com/quote/NVDA/">Yahoo Finance NVIDIA</a></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <p>Researched and prepared by Vipul Anand on May 16, 2024 </p>
+  </footer>
+  
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">External factors can significantly impact NVIDIA's performance. Please be cautious!</div>
+  
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h2>External Factors</h2>
+      <p>External factors such as changes in regulatory policies, economic conditions, and competitive landscape can significantly impact NVIDIA's performance. Investors should stay informed and monitor these factors closely to make well-informed investment decisions.</p>
+      <button id="closeModal">Close</button>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Revenue ($ billion)', 'Earnings Per Share (EPS)'],
+          datasets: [
+            {
+              label: '2023',
+              data: [60.922, 11.93],
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1
+            },
+            {
+              label: '2024 (Forecast)',
+              data: [58.7, 12.30],
+              backgroundColor: 'rgba(255, 159, 64, 0.2)',
+              borderColor: 'rgba(255, 159, 64, 1)',
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: false
+            }
+          }
+        }
+      });
 
-    <footer>
-        <p>Prepared by Vipul Anand on 2024-05-16</p>
-    </footer>
+      var chartType = 'bar';
+      document.getElementById('chartTypeButton').addEventListener('click', function() {
+        if (chartType === 'bar') {
+          myChart.config.type = 'line';
+          chartType = 'line';
+        } else {
+          myChart.config.type = 'bar';
+          chartType = 'bar';
+        }
+        myChart.update();
+      });
+
+      // Toast functionality
+      var toast = document.getElementById("toast");
+      setTimeout(function() {
+        toast.classList.add("show");
+        setTimeout(function() {
+          toast.classList.remove("show");
+        }, 5000); // Duration the toast is shown
+      }, 1000); // Delay before the toast is shown
+
+      // Modal functionality
+      var modal = document.getElementById("myModal");
+      var link = document.getElementById("externalFactorsLink");
+      var closeModal = document.getElementById("closeModal");
+
+      link.onclick = function() {
+        modal.style.display = "block";
+      }
+
+      closeModal.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    });
+  </script>
 </body>
 </html>
